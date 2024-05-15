@@ -39,7 +39,7 @@ OpenMoneroP2P.store is a non-custodial peer-to-peer platform for buying and sell
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/yourusername/OpenMoneroP2P.store.git
+    git clone https://github.com/bdr-pro/localmonero.git
     cd OpenMoneroP2P.store
     ```
 
