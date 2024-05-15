@@ -1,10 +1,6 @@
-Sure, here is a sample README for your project, `OpenMoneroP2P.store`, which is a non-custodial P2P platform for trading Monero and fiat currencies using Django:
-
----
-
 # OpenMoneroP2P.store
 
-OpenMoneroP2P.store is a non-custodial peer-to-peer platform for buying and selling Monero (XMR) and fiat currencies. This platform facilitates direct transactions between users, ensuring that funds are never held by the platform itself. 
+OpenMoneroP2P.store is a non-custodial peer-to-peer platform for buying and selling Monero (XMR) and fiat currencies. This platform facilitates direct transactions between users, ensuring that funds are never held by the platform itself.
 
 ## Features
 
