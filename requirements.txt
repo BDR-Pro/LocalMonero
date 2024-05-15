@@ -1,0 +1,15 @@
+Django>=3.2
+djangorestframework>=3.12
+psycopg2>=2.9.3  # For PostgreSQL database
+mysqlclient>=2.0.3  # For MySQL database
+dj-database-url>=0.5.0
+python-decouple>=3.5
+djangorestframework-simplejwt>=4.7.2  # For JWT authentication
+django-cors-headers>=3.7.0
+djangorestframework-recursive>=0.1.2
+gunicorn>=20.1.0  # For production WSGI server
+monero>=0.6.0  # Monero RPC client
+pytz>=2021.1
+whitenoise>=5.3.0  # For serving static files in production
+requests>=2.25.1  # For HTTP requests
+cryptography>=3.4.7  # For additional security features
