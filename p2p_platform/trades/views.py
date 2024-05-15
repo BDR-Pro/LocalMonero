@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from .models import TradeOffer, Transaction
 from .serializers import TradeOfferSerializer, TransactionSerializer
 from .Monero import create_address, withdraw, get_website_address
+
 class TradeOfferViewSet(viewsets.ModelViewSet):
     queryset = TradeOffer.objects.all()
     serializer_class = TradeOfferSerializer
@@ -57,11 +58,11 @@ class TransactionViewSet(viewsets.ModelViewSet):
         address = request.data.get('address')
         amount = transaction.amount*0.99
         #withdraw the amount to the buyer from the seller
-        tx_hash = withdraw(address, amount , seller_add) # type: ignore
+        tx_hash = withdraw(seller_add , address, amount) # type: ignore
         #pay the website fee
         website_fee = transaction.amount*0.01
         website_address = get_website_address() # type: ignore
-        withdraw(website_address, website_fee, seller_add) # type: ignore
+        withdraw(seller_add ,website_address , website_fee) # type: ignore
         transaction.status = 'completed'
         transaction.completed_at = timezone.now()
         transaction.save()

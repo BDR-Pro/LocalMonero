@@ -7,14 +7,17 @@ MONERO_RPC_PORT= settings.MONERO_RPC_PORT
 MONERO_RPC_USER= settings.MONERO_RPC_USER
 MONERO_RPC_PASSWORD= settings.MONERO_RPC_PASSWORD
 
-def get_website_address():
+def get_wallet():
     return Wallet(JSONRPCWallet(host=MONERO_RPC_HOST,
                               port=MONERO_RPC_PORT, user=MONERO_RPC_USER,
                               password=MONERO_RPC_PASSWORD))
 
-def create_address():
-    return get_website_address().create_address().address
 
-"""def withdraw(address, amount):
-    tx = wallet.transfer([(address, amount)])
-    return tx.tx_hash"""
+def create_address():
+    return get_wallet().addresses()[0]
+
+def withdraw(from_address, to_address, amount):
+    wallet = get_wallet()
+    wallet.refresh()
+    tx = wallet.transfer([(to_address, amount)], account=from_address)
+    return tx.tx_hash
