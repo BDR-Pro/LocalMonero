@@ -45,7 +45,7 @@ class TradeOfferViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['post'])
     def deposit(self, request):
-        address = create_address() # type: ignore
+        address = create_address()
         return Response({"address": address})
 
 class TransactionViewSet(viewsets.ModelViewSet):
@@ -56,14 +56,15 @@ class TransactionViewSet(viewsets.ModelViewSet):
     def complete(self, request, pk=None):
         transaction = self.get_object()
         address = request.data.get('address')
-        amount = transaction.amount*0.99
-        #withdraw the amount to the buyer from the seller
-        tx_hash = withdraw(seller_add , address, amount) # type: ignore
+        amount = transaction.amount
+        website_address = get_wallet()
+        #withdraw the amount to the website from the seller
+        tx_hash = withdraw(transaction.seller.address, website_address, amount)
         #pay the website fee
-        website_fee = transaction.amount*0.01
-        website_address = get_website_address() # type: ignore
-        withdraw(seller_add ,website_address , website_fee) # type: ignore
+        website_fee = transaction.amount*0.99
+        withdraw(website_address , address , website_fee)
         transaction.status = 'completed'
         transaction.completed_at = timezone.now()
         transaction.save()
         return Response({"tx_hash": tx_hash})
+    

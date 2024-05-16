@@ -128,6 +128,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import os 
+from dotenv import load_dotenv
+load_dotenv()
 MONERO_RPC_HOST = os.getenv('MONERO_RPC_HOST', 'localhost') 
 MONERO_RPC_PORT = os.getenv('MONERO_RPC_PORT', 18081)
 MONERO_RPC_USER =  os.getenv('MONERO_RPC_USER', 'user')
