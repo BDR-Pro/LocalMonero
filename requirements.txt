@@ -13,3 +13,4 @@ pytz>=2021.1
 whitenoise>=5.3.0  # For serving static files in production
 requests>=2.25.1  # For HTTP requests
 cryptography>=3.4.7  # For additional security features
+django-jazzmin

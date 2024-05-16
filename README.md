@@ -8,12 +8,10 @@ OpenMoneroP2P.store is a non-custodial peer-to-peer platform for buying and sell
 - **Trade Offers**: Users can create and browse trade offers to buy or sell Monero.
 - **Transactions**: Secure, non-custodial transactions between users.
 - **Monero Wallet Integration**: Integration with Monero wallets using the Monero RPC API.
-- **Escrow Service**: Optional integration of smart contracts for escrow services.
-- **Compliance**: Support for KYC/AML compliance.
 
 ## Technology Stack
 
-- **Frontend**: HTML, CSS, JavaScript (React, Angular, or Vue.js)
+- **Frontend**: HTML, CSS, JavaScript (Vue.js)
 - **Backend**: Django, Django REST Framework
 - **Database**: PostgreSQL, MySQL, or MongoDB
 - **Blockchain Interaction**: Monero RPC API

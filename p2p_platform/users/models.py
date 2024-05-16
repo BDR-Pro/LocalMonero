@@ -24,8 +24,11 @@ class User(AbstractUser):
         help_text=('Specific permissions for this user.'),
         verbose_name=('user permissions'),
     )
+    def __str__(self):
+        return self.username
 
 class Review(models.Model):
+    """Model to represent a review."""
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_reviews')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='written_reviews')
     text = models.TextField()
@@ -34,3 +37,4 @@ class Review(models.Model):
     
     def __str__(self):
         return f'{self.author} -> {self.user}'
+    

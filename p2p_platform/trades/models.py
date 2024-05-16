@@ -2,6 +2,7 @@ from django.db import models
 from users.models import User
 
 class TradeOffer(models.Model):
+    """Model to represent a trade offer."""
     TRADE_TYPE_CHOICES = [
         ('buy', 'Buy'),
         ('sell', 'Sell')
@@ -14,6 +15,7 @@ class TradeOffer(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 class Transaction(models.Model):
+    """Model to represent a transaction."""
     offer = models.ForeignKey(TradeOffer, on_delete=models.CASCADE)
     buyer = models.ForeignKey(User, related_name='transactions_as_buyer', on_delete=models.CASCADE)
     seller = models.ForeignKey(User, related_name='transactions_as_seller', on_delete=models.CASCADE)
