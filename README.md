@@ -50,8 +50,6 @@ OpenMoneroP2P.store is a non-custodial peer-to-peer platform for buying and sell
     Create a `.env` by change template.env file and add the necessary environment variables.
 
     ```bash
-    SECRET_KEY=your_secret_key
-    DATABASE_URL=your_database_url
     MONERO_RPC_HOST=localhost
     MONERO_RPC_PORT=18083
     MONERO_RPC_USER=user

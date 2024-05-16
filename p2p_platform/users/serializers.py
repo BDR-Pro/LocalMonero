@@ -1,10 +1,11 @@
 from rest_framework import serializers
 from .models import User , Review
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'rating', 'balance', 'num_of_deals', 'num_of_buys', 'Reviews']
+        fields = ['id', 'username', 'email', 'rating', 'balance', 'num_of_deals', 'num_of_buys', 'review_set']
         
 class UserRegistrationSerializer(serializers.ModelSerializer):
     class Meta:

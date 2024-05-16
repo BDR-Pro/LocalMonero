@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'trades',
     'users',
     'rest_framework',
+    'health_check',
 ]
 
 MIDDLEWARE = [

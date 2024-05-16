@@ -1,5 +1,5 @@
-from monero.wallet import Wallet  # type: ignore
-from monero.backends.jsonrpc import JSONRPCWallet # type: ignore
+from monero.wallet import Wallet  
+from monero.backends.jsonrpc import JSONRPCWallet 
 from django.conf import settings
 
 MONERO_RPC_HOST= settings.MONERO_RPC_HOST

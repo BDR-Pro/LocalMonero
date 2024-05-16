@@ -4,7 +4,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from .models import TradeOffer, Transaction
 from .serializers import TradeOfferSerializer, TransactionSerializer
-from .Monero import create_address, withdraw, get_website_address
+from .Monero import create_address, withdraw, get_wallet
 
 class TradeOfferViewSet(viewsets.ModelViewSet):
     queryset = TradeOffer.objects.all()
