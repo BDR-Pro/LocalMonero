@@ -16,3 +16,4 @@ cryptography>=3.4.7  # For additional security features
 django-jazzmin
 python-dotenv
 python-bitcoinrpc
+requests
