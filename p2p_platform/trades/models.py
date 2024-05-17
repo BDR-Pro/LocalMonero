@@ -13,6 +13,7 @@ class TradeOffer(models.Model):
     price = models.DecimalField(max_digits=12, decimal_places=12)
     payment_details = models.TextField()  # Store payment details for fiat transactions
     created_at = models.DateTimeField(auto_now_add=True)
+    against_btc = models.BooleanField(default=False)
 
 class Transaction(models.Model):
     """Model to represent a transaction."""
@@ -23,3 +24,4 @@ class Transaction(models.Model):
     status = models.CharField(max_length=12, default='pending')
     created_at = models.DateTimeField(auto_now_add=True)
     completed_at = models.DateTimeField(null=True, blank=True)
+    addy = models.CharField(max_length=100, null=True, blank=True)
