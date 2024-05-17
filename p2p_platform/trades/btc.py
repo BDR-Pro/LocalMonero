@@ -51,3 +51,9 @@ def get_transaction(txid):
         return None
     
 
+def check_btc_payment(address, amount):
+    transactions = rpc_connection.listtransactions("*", 1000)
+    for tx in transactions:
+        if tx['address'] == address and tx['amount'] == amount and tx['confirmations'] > 0:
+            return True
+    return False

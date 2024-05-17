@@ -21,3 +21,10 @@ def withdraw(from_address, to_address, amount):
     wallet.refresh()
     tx = wallet.transfer([(to_address, amount)], account=from_address)
     return tx.tx_hash
+
+def check_monero_payment(address, amount):
+    transactions = get_wallet.transfers(in_=True)
+    for tx in transactions:
+        if tx.destination == address and tx.amount == amount and tx.confirmations > 0:
+            return True
+    return False

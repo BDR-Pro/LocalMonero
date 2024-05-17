@@ -11,6 +11,7 @@ const routes = [
   { path: '/transactions', component: TransactionList },
   { path: '/login', component: Login },
   { path: '/sign-up', component: SignUp },
+  { path: '/transaction/:id', component: Transaction, props: true },
 ];
 
 const router = createRouter({
