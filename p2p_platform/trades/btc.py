@@ -2,10 +2,10 @@ from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 from django.conf import settings
 
 # Configuration for connecting to the Bitcoin RPC server
-rpc_user = settings.BTC_RPC_USER
-rpc_password = settings.BTC_RPC_PASSWORD
-rpc_port = settings.BTC_RPC_PORT
-rpc_host = settings.BTC_RPC_HOST
+rpc_user = settings.RPC_USER
+rpc_password = settings.RPC_PASSWORD
+rpc_port = settings.RPC_PORT
+rpc_host = settings.RPC_HOST
 
 # Create a connection to the Bitcoin RPC server
 rpc_url = f'http://{rpc_user}:{rpc_password}@{rpc_host}:{rpc_port}'

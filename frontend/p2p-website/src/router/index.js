@@ -4,6 +4,7 @@ import TradeOfferList from '../components/TradeOfferList.vue';
 import TransactionList from '../components/TransactionList.vue';
 import Login from '../components/LoginUser.vue';
 import SignUp from '../components/SignUp.vue';
+import Transaction from '../components/InitTransaction.vue';
 
 const routes = [
   { path: '/', component: UserList },

@@ -1,83 +1,166 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark" class="custom-navbar">
-      <b-navbar-brand href="#">
-        <i class="fas fa-film mr-2"></i>P2P Website
-      </b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <nav class="navbar custom-navbar">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-film mr-2"></i>Open-Monero Market
+      </a>
+      <button class="navbar-toggler" @click="toggleNavbar">
+        <span class="navbar-toggler-icon">&#9776;</span>
+      </button>
+      <div class="navbar-collapse" :class="{ show: navbarOpen }">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link" exact>
+              <i class="fas fa-users mr-2"></i>Users
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/trade-offers" class="nav-link" exact>
+              <i class="fas fa-exchange-alt mr-2"></i>Trade Offers
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/transactions" class="nav-link" exact>
+              <i class="fas fa-money-check-alt mr-2"></i>Transactions
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/login" class="nav-link" exact>
+              <i class="fas fa-sign-in-alt mr-2"></i>Login
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/sign-up" class="nav-link" exact>
+              <i class="fas fa-user-plus mr-2"></i>Sign Up
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item to="/" exact>
-            <i class="fas fa-users mr-2"></i>Users
-          </b-nav-item>
-          <b-nav-item to="/trade-offers" exact>
-            <i class="fas fa-exchange-alt mr-2"></i>Trade Offers
-          </b-nav-item>
-          <b-nav-item to="/transactions" exact>
-            <i class="fas fa-money-check-alt mr-2"></i>Transactions
-          </b-nav-item>
-          <b-nav-item to="/login" exact>
-            <i class="fas fa-sign-in-alt mr-2"></i>Login
-          </b-nav-item>
-          <b-nav-item to="/sign-up" exact>
-            <i class="fas fa-user-plus mr-2"></i>Sign Up
-          </b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
-
-    <b-container class="mt-4 custom-container">
+    <div class="container mt-4 custom-container">
       <router-view></router-view>
-    </b-container>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
+  data() {
+    return {
+      navbarOpen: false,
+    };
+  },
+  methods: {
+    toggleNavbar() {
+      this.navbarOpen = !this.navbarOpen;
+    },
+  },
 };
 </script>
 
 <style scoped>
 /* Custom Navbar */
 .custom-navbar {
-  background-color: #FF4500 !important; /* Dark Orange */
+  background-color: #343a40; /* Darker background for a modern look */
   border-radius: 15px;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Navbar brand */
-.b-navbar-brand {
+.navbar-brand {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffc107; /* Gold color for brand text */
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar-toggler {
+  border: none;
+  background: none;
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #fff !important;
-  font-family: 'Poppins', sans-serif;
+  color: #ffc107;
+  cursor: pointer;
+  display: none; /* Hide toggler by default */
 }
 
-/* Navbar items */
-.b-nav-item {
-  font-size: 1.1rem;
-  margin: 0 10px;
-  color: #fff !important;
-  font-family: 'Poppins', sans-serif;
+.navbar-toggler-icon {
+  font-size: 1.5rem;
 }
 
-.b-nav-item:hover {
+.navbar-collapse {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-collapse.show {
+  flex-direction: column;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin: 0 15px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  color: #f8f9fa; /* Light color for links */
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+}
+
+.nav-link:hover {
   text-decoration: underline;
-  color: #FFD700 !important; /* Gold color for hover */
+  color: #ffc107; /* Gold color for hover */
 }
 
 /* Container styles */
 .custom-container {
-  background-color: #f8f9fa;
-  padding: 2rem;
+  background-color: #ffffff;
+  padding: 2.5rem;
   border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Custom margin for top spacing */
 .mt-4 {
   margin-top: 2rem !important;
+}
+
+/* Responsive styling */
+@media (max-width: 992px) {
+  .navbar-toggler {
+    display: block; /* Show toggler on smaller screens */
+  }
+
+  .navbar-collapse {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-collapse.show {
+    display: flex;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+    text-align: center;
+  }
 }
 </style>

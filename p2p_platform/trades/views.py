@@ -3,8 +3,10 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.views import APIView
 from django.utils import timezone
-from .models import Transaction, User, TradeOffer, Review
-from .serializers import TransactionSerializer, UserSerializer, TradeOfferSerializer, ReviewSerializer
+from .models import Transaction, User, TradeOffer
+from users.models import Review
+from users.serializers import ReviewSerializer
+from .serializers import TransactionSerializer, UserSerializer, TradeOfferSerializer
 from .Monero import create_address as create_monero_address, withdraw as withdraw_monero, get_wallet as get_monero_wallet
 from .btc import get_new_address as get_btc_new_address, send_to_address as send_btc_to_address
 import time

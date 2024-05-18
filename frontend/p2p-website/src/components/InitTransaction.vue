@@ -17,7 +17,7 @@
 import axios from 'axios';
 
 export default {
-  name: 'Transaction',
+  name: 'InitTransaction',
   props: {
     transaction: {
       type: Object,
