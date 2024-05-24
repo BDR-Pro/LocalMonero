@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}New Offer{% endblock %}
+
+{% block content %}
+{% if error %}
+    <p>{{ error }}</p>
+{% endif %}
+<h1>Create a New Offer</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create Offer</button>
+</form>
+{% endblock %}

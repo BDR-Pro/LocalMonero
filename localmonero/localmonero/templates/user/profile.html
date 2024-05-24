@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Welcome to your profile, {{ user.username }}!</h1>
+    <p>You are now logged in.</p>
+    <p><strong>Bio:</strong> {{ profile.bio }}</p>
+    <p><strong>Location:</strong> {{ profile.location }}</p>
+    <p><strong>BTC Address:</strong> {{ profile.btc_address }}</p>
+    <p><strong>XMR Address:</strong> {{ profile.xmr_address }}</p>
+    <p><strong>Local Market Balance:</strong> {{ profile.localmarket_balance }}</p>
+    <p><strong>BTC Balance:</strong> {{ profile.btc_balance }}</p>
+    <p><strong>XMR Balance:</strong> {{ profile.xmr_balance }}</p>
+
+    <form action="{% url 'user:calculate_xmr_balance' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Calculate XMR Balance</button>
+    </form>
+
+    <form action="{% url 'user:calculate_btc_balance' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Calculate BTC Balance</button>
+    </form>
+</body>
+</html>

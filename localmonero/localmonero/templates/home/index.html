@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to LocalMonero</h1>
+    <p>This is the homepage of the LocalMonero platform. Use the navigation menu to access various functionalities.</p>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Offers</h5>
+                    <p class="card-text">Browse and manage offers.</p>
+                    <a href="{% url 'offer:offer_list' %}" class="btn btn-primary">View Offers</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">New Offer</h5>
+                    <p class="card-text">Create a new offer.</p>
+                    <a href="{% url 'offer:new_offer' %}" class="btn btn-primary">Create Offer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Search Offers</h5>
+                    <p class="card-text">Search for specific offers.</p>
+                    <a href="{% url 'offer:offer_search' %}" class="btn btn-primary">Search Offers</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Withdraw XMR</h5>
+                    <p class="card-text">Withdraw your Monero funds.</p>
+                    <a href="{% url 'funds:withdraw_xmr' %}" class="btn btn-primary">Withdraw XMR</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Withdraw BTC</h5>
+                    <p class="card-text">Withdraw your Bitcoin funds.</p>
+                    <a href="{% url 'funds:withdraw_btc' %}" class="btn btn-primary">Withdraw BTC</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Withdraw LocalMonero</h5>
+                    <p class="card-text">Withdraw your LocalMonero funds.</p>
+                    <a href="{% url 'funds:withdraw_localmonero' %}" class="btn btn-primary">Withdraw LocalMonero</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fund Account</h5>
+                    <p class="card-text">Fund your LocalMonero account.</p>
+                    <a href="{% url 'funds:fund_localmonero_account' %}" class="btn btn-primary">Fund Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

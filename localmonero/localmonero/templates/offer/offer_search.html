@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}New Offer{% endblock %}
+
+{% block content %}
+<h1>Search Offers</h1>
+<form method="get">
+    <input type="text" name="query" value="{{ query }}" placeholder="Search offers...">
+    <button type="submit">Search</button>
+</form>
+
+
+
+{% if query %}<p>Results for "{{ query }}":</p>{% endif %}
+<ul>
+    {% for result in results %}
+        <li><a href="{% url 'offer_detail' result.id %}">{{ result }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+
+

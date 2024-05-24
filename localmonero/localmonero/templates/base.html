@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LocalMonero{% endblock %}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .nav-link.active {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3 class="text-center">LocalMonero</h3>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'offer:offer_list' %}">
+                    <i class="fas fa-list"></i> Offers
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'offer:new_offer' %}">
+                    <i class="fas fa-plus-circle"></i> New Offer
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'offer:offer_search' %}">
+                    <i class="fas fa-search"></i> Search Offers
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'funds:withdraw_xmr' %}">
+                    <i class="fas fa-arrow-circle-right"></i> Withdraw XMR
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'funds:withdraw_btc' %}">
+                    <i class="fas fa-arrow-circle-right"></i> Withdraw BTC
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'funds:withdraw_localmonero' %}">
+                    <i class="fas fa-arrow-circle-right"></i> Withdraw LocalMonero
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'funds:fund_localmonero_account' %}">
+                    <i class="fas fa-dollar-sign"></i> Fund Account
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

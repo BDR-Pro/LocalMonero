@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Offer Detail{% endblock %}
+
+{% block content %}
+<h1>Offer Details</h1>
+<p>Type: {{ offer.get_offer_type_display }}</p>
+<p>Cryptocurrency: {{ offer.get_cryptocurrency_display }}</p>
+<p>Amount: {{ offer.amount }}</p>
+<p>Price: {{ offer.price }}</p>
+<p>Details: {{ offer.details }}</p>
+
+{% if offer.seller == request.user %}
+    <a href="{% url 'offer:offer_edit' offer.id %}">Edit</a>
+    <a href="{% url 'offer:offer_delete' offer.id %}">Delete</a>
+{% else %}
+    <a href="{% url 'offer:offer_buy' offer.id %}">Buy</a>
+{% endif %}
+
+{% endblock %}
